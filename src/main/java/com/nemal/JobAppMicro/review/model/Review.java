@@ -8,42 +8,17 @@ import jakarta.persistence.*;
 public class Review {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long rid;
     private String title;
     private String description;
     private double rating;
 
-    @JsonIgnore
-    @ManyToOne
-    private Company company;
-
-    public Review() {
+    public Long getRid() {
+        return rid;
     }
 
-
-
-
-    public Company getCompany() {
-        return company;
-    }
-
-    public void setCompany(Company company) {
-        this.company = company;
-    }
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
+    public void setRid(Long rid) {
+        this.rid = rid;
     }
 
     public String getTitle() {
@@ -54,6 +29,14 @@ public class Review {
         this.title = title;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     public double getRating() {
         return rating;
     }
@@ -61,6 +44,34 @@ public class Review {
     public void setRating(double rating) {
         this.rating = rating;
     }
+
+    public Company getCompany() {
+        return company;
+    }
+
+    public void setCompany(Company company) {
+        this.company = company;
+    }
+
+    @JsonIgnore
+    @ManyToOne
+    private Company company;
+
+
+    public Review() {
+    }
+
+
+
+
+    public Review(Long rid, String title, String description, double rating, Company company) {
+        this.rid = rid;
+        this.title = title;
+        this.description = description;
+        this.rating = rating;
+        this.company = company;
+    }
+
 
 
 }

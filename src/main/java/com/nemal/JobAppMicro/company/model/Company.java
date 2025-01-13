@@ -12,7 +12,7 @@ import java.util.List;
 @Entity
 public class Company {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private String description;
@@ -24,6 +24,8 @@ public class Company {
     public Long getId() {
         return id;
     }
+
+
 
     public void setId(Long id) {
         this.id = id;
@@ -66,5 +68,15 @@ public class Company {
     private List<Review> reviews;
 
     public Company() {
+    }
+
+
+
+    public Company(Long id, String name, String description, List<Job> jobs, List<Review> reviews) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.jobs = jobs;
+        this.reviews = reviews;
     }
 }

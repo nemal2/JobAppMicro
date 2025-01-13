@@ -13,7 +13,6 @@ import java.util.*;
 @Service
 public class JobServiceImpl implements JobService {
 
-    private Long nid = 1L;
     @Autowired
     private JobRepository jobRepository;
 
