@@ -1,5 +1,6 @@
 package com.nemal.JobAppMicro.Job;
 
+import com.nemal.JobAppMicro.company.model.Company;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -22,6 +23,9 @@ public class Job {
 
     @Version
     private int version;
+
+    @ManyToOne
+    private Company company;
 
 //    public void setId(Long nid) {
 //        this.nid = nid;
